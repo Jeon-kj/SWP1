@@ -1,2 +1,2 @@
-20203129	 Jeonkj-kj
+Jeon-kj 20203129
 Kookmin Univ. SW
