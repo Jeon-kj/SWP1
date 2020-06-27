@@ -13,7 +13,10 @@ def application(environ, start_response):
                 }
 
 	else :
-		response_body = html
+		response_body = html % {
+                        'sum':0,
+                        'mul':0,
+                }
 
 	status = '200 OK'
 	response_headers = [
