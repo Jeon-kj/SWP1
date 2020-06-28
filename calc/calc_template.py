@@ -6,8 +6,8 @@ html = """
         b = <input type="number" name="b">
         <input type="submit">
     </form>
-        a + b = : %(sum)s</br>
-        a * b = : %(mul)s</br>
+        a + b = %(sum)s</br>
+        a * b = %(mul)s</br>
 </body>
 </html>
 """
