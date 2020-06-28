@@ -6,14 +6,27 @@ def application(environ, start_response):
     a = d.get('a', [''])[0]
     b = d.get('b', [''])[0]
     if environ['QUERY_STRING'] != '' :
-        if a.isdigit() == False or b.isdigit() == False :
+        if a == '' and b.isdigit() == True :
+            a, b= 0, int(b)
+            response_body = html % {
+                    'sum':a+b,
+                    'mul':a*b,
+            }
+
+        elif a.isdigit() == True and b == '' :
+            a, b = int(a), 0
+            response_body = html % {
+                    'sum':a+b,
+                    'mul':a*b,
+            }
+
+        elif a.isdigit() == False or b.isdigit() == False :
             response_body = html % {
                     'sum':-1,
                     'mul':-1,
             }
-            
-        else :
 
+        else :
             a, b = int(a), int(b)
             response_body = html % {
                     'sum':a+b,
