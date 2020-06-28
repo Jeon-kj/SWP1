@@ -20,21 +20,28 @@ def application(environ, start_response):
                     'mul':a*b,
             }
 
-        elif a.isdigit() == False or b.isdigit() == False :
+        elif a == '' and b == '' :
+            a, b = 0, 0
             response_body = html % {
-                    'sum':-1,
-                    'mul':-1,
+                    'sum':a+b,
+                    'mul':a*b,
             }
 
-        else :
+        elif a.isdigit() == True and b.isdigit() == True :
             a, b = int(a), int(b)
             response_body = html % {
                     'sum':a+b,
                     'mul':a*b,
             }
 
-    else :
+        elif a.isdigit() == False or b.isdigit() == False :
             response_body = html % {
+                    'sum':-1,
+                    'mul':-1,
+            }
+
+    else :
+        response_body = html % {
                     'sum':0,
                     'mul':0,
             }
@@ -47,4 +54,3 @@ def application(environ, start_response):
     ]
     start_response(status, response_headers)
     return [response_body]
-
